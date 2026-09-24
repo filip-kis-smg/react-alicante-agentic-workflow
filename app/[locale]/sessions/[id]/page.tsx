@@ -45,7 +45,7 @@ export default async function SessionDetailPage({
       </Link>
 
       <Flex direction="column" gap="3">
-        <Flex align="center" gap="3">
+        <Flex align="center" gap="3" wrap="wrap">
           <Flex gap="2">
             <Badge>{session.track}</Badge>
             <Badge variant="secondary">{t(session.level)}</Badge>
