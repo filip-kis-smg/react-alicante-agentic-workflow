@@ -24,7 +24,8 @@ export default async function SessionDetailPage({
 }) {
   const { locale, id } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("SessionLevel");
+  const t = await getTranslations("SessionPage");
+  const tLevel = await getTranslations("SessionLevel");
   const session = await fetchSessionById(id);
 
   if (!session) {
@@ -40,7 +41,7 @@ export default async function SessionDetailPage({
           color="var(--text-muted)"
           _hover={{ textDecoration: "underline" }}
         >
-          ← Back to schedule
+          ← {t("backToSchedule")}
         </Text>
       </Link>
 
@@ -48,10 +49,12 @@ export default async function SessionDetailPage({
         <Flex align="center" gap="3" wrap="wrap">
           <Flex gap="2">
             <Badge>{session.track}</Badge>
-            <Badge variant="secondary">{t(session.level)}</Badge>
+            <Badge variant="secondary">{tLevel(session.level)}</Badge>
           </Flex>
           <Text fontSize="sm" color="var(--text-muted)">
-            {session.startTime} · {session.durationMinutes} min · {session.room}
+            {session.startTime} ·{" "}
+            {t("duration", { minutes: session.durationMinutes })} ·{" "}
+            {session.room}
           </Text>
         </Flex>
         <Heading as="h1" fontSize="3xl" fontWeight="bold">

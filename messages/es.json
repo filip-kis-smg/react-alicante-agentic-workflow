@@ -21,5 +21,9 @@
     "beginner": "Principiante",
     "intermediate": "Intermedio",
     "advanced": "Avanzado"
+  },
+  "SessionPage": {
+    "backToSchedule": "Volver al horario",
+    "duration": "{minutes} min"
   }
 }
