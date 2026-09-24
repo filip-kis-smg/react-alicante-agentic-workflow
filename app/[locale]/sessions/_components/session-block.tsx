@@ -12,6 +12,7 @@ interface SessionBlockProps {
 
 export function SessionBlock({ session, top, height }: SessionBlockProps) {
   const t = useTranslations("SessionLevel");
+  const details = `${session.startTime} · ${t(session.level)} · ${session.speaker}`;
 
   return (
     <Link href={`/sessions/${session.id}`}>
@@ -25,8 +26,9 @@ export function SessionBlock({ session, top, height }: SessionBlockProps) {
           <Text fontWeight="medium" color="var(--text-primary)" truncate>
             {session.title}
           </Text>
-          <Text color="var(--text-muted)" truncate>
-            {session.startTime} · {t(session.level)} · {session.speaker}
+          {/* Truncated in narrow blocks; the title shows it all on hover. */}
+          <Text color="var(--text-muted)" truncate title={details}>
+            {details}
           </Text>
         </SurfaceCard>
       </Box>

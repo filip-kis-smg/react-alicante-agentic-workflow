@@ -41,7 +41,7 @@ export default async function SessionDetailPage({
           color="var(--text-muted)"
           _hover={{ textDecoration: "underline" }}
         >
-          ← {t("backToSchedule")}
+          <span aria-hidden="true">←</span> {t("backToSchedule")}
         </Text>
       </Link>
 
