@@ -12,11 +12,17 @@ export function SpeakerCard({ name, sessions }: SpeakerCardProps) {
   return (
     <Card as="article" height="full">
       <CardContent gap="4">
-        <CardTitle as="h2" fontSize="lg">
+        <CardTitle as="h2" fontSize="md">
           {name}
         </CardTitle>
 
-        <Flex as="ul" direction="column" gap="3" listStyleType="none">
+        <Flex
+          as="ul"
+          role="list"
+          direction="column"
+          gap="1"
+          listStyleType="none"
+        >
           {sessions.map((session) => (
             <li key={session.id}>
               <Link href={`/sessions/${session.id}`}>
@@ -24,9 +30,10 @@ export function SpeakerCard({ name, sessions }: SpeakerCardProps) {
                   as="span"
                   direction="column"
                   gap="1"
+                  paddingY="2"
                   _hover={{ color: "var(--accent-hex)" }}
                 >
-                  <Text as="span" fontSize="sm" color="var(--text-muted)">
+                  <Text as="span" fontSize="sm" color="var(--text-secondary)">
                     <time dateTime={session.startTime}>
                       {session.startTime}
                     </time>
